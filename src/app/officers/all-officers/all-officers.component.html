@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Father Name</th>
+            <th>Mother Name</th>
+            <th>Nick Name</th>
+            <th>Designation</th>
+            <th>DOB</th>
+            <th>DOJ</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let officer of officerList">
+            <td>{{officer.id}}</td>
+            <td>{{officer.name}}</td>
+            <td>{{officer.fatherName}}</td>
+            <td>{{officer.motherName}}</td>
+            <td>{{officer.nickName}}</td>
+            <td>{{officer.designation}}</td>
+            <td>{{officer.dob | date:'dd-MM-yyyy'}}</td>
+            <td>{{officer.doj| date:'dd-MM-yyyy'}}</td>
+            <td>{{officer.gender}}</td>
+            <td>{{officer.address}}</td>
+            <td><a class="btn btn-primary">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
