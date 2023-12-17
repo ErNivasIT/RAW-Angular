@@ -1,0 +1,51 @@
+<table class="table table-dark">
+    <tbody>
+        <tr>
+            <td colspan="4"><div class="m-1 alert alert-secondary">Officer Profile</div></td>
+        </tr>
+        <tr>
+            <td>Officer Id</td>
+            <td>{{posting.Officer_Id}}</td>
+            <td>Name </td>
+            <td>{{posting.Name}}</td>
+        </tr>
+        <tr>
+            <td>Father Name</td>
+            <td>{{posting.FatherName}}</td>
+            <td>Mother Name</td>
+            <td>{{posting.MotherName}}</td>
+        </tr>
+        <tr>
+            <td>Nick Name</td>
+            <td>{{posting.NickName}}</td>
+            <td>Designation </td>
+            <td>{{posting.Designation}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-dark">
+    <tbody>
+        <tr>
+            <td colspan="4"><div class="m-1 alert alert-secondary">Posting & Designation</div></td>
+        </tr>
+        <tr>
+            <td>Designation</td>
+            <td>{{posting.Designation}}</td>
+            <td>Posting </td>
+            <td>{{posting.Posting}}</td>
+        </tr>
+        <tr>
+            <td>Posting From</td>
+            <td>{{posting.Posting_From | date :'dd-MM-yyyy' }}</td>
+            <td>Posting Upto</td>
+            <td>{{posting.Posting_Upto | date :'dd-MM-yyyy' }}</td>
+        </tr>
+        <tr>
+            <td>DOJ</td>
+            <td>{{posting.DOJ | date :'dd-MM-yyyy' }}</td>
+            <td> </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
