@@ -6,10 +6,12 @@ import { AddPostingComponent } from './officers/add-posting/add-posting.componen
 import { ViewOfficerPostingComponent } from './officers/view-officer-posting/view-officer-posting.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
+import { LogoutComponent } from './login/logout/logout.component';
 
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
     { path: "login", component: LoginComponent },
+    { path: "logout", component: LogoutComponent },
     { path: "officer-list", component: AllOfficersComponent },
     { path: "add-officer", component: AddOfficerComponent },
     { path: "add-posting/:id", component: AddPostingComponent },

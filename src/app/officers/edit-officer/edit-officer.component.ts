@@ -32,11 +32,11 @@ export class EditOfficerComponent {
 
   });
 
-  constructor(private officerApi: OfficersapiService,private route:ActivatedRoute,private router:Router) {
+  constructor(private officerApi: OfficersapiService, private route: ActivatedRoute, private router: Router) {
   }
   ngOnInit() {
-    this.route.params.subscribe(p=>{
-      this.id=p['id'];
+    this.route.params.subscribe(p => {
+      this.id = p['id'];
     });
     this.officerApi.getOfficerById(this.id)
       .subscribe(p => {
@@ -55,13 +55,15 @@ export class EditOfficerComponent {
       });
   }
   SaveChanges() {
-    this.officerApi.updateOfficer(this.officerForm.value,this.id)
+    this.officerApi.updateOfficer(this.officerForm.value, this.id)
       .subscribe(p => {
-        alert(p.result);
+        if (p.result.indexOf('SUCCESS') > -1) {
+          this.router.navigate(['officer-list']);
+        } else
+          alert(p.result);
       });
   }
-  gotoAllOfficePage()
-  {
+  gotoAllOfficePage() {
     this.router.navigate(['officer-list']);
   }
 }

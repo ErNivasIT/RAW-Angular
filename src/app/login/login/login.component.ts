@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginapiService } from '../../loginapi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { LoginapiService } from '../../loginapi.service';
 })
 export class LoginComponent implements OnInit {
   response:any;
-  constructor(private fb: FormBuilder,private loginService:LoginapiService) { }
+  constructor(private fb: FormBuilder,private loginService:LoginapiService,private router:Router) { }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       UserName: ['', Validators.required],
@@ -30,5 +31,6 @@ export class LoginComponent implements OnInit {
   private setToken(token: string): void {
     // Set the token as an HttpOnly cookie
     localStorage.setItem("token",token);
+    this.router.navigate(['home']);
   }
 }

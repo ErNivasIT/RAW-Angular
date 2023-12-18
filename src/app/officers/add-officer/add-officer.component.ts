@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OfficersapiService } from '../../officersapi.service';
 import { CommonModule, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-officer',
@@ -15,7 +16,7 @@ export class AddOfficerComponent implements OnInit {
   isModalShowable: boolean = false;
   response: any;
   officerForm!:FormGroup;
-  constructor(private fb: FormBuilder, private officerApi: OfficersapiService) { }
+  constructor(private fb: FormBuilder, private officerApi: OfficersapiService,private router:Router) { }
   ngOnInit(): void {
     this.officerForm = this.fb.group({
       Name:[''],
@@ -34,6 +35,7 @@ export class AddOfficerComponent implements OnInit {
         .subscribe(p => {
           this.response = p;
           this.isModalShowable = true;
+          this.router.navigate(['officer-list']);
         });
     }
     else

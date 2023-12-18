@@ -21,6 +21,7 @@ export class OfficersapiService {
     return this.http.get<any>(this.apiUrl+"/officers/getbyid/"+id);
   }
   updateOfficer(form:any,id:number) {
+    console.log(form);
     return this.http.put<any>(this.apiUrl+"/officers/update/"+id,form);
   }
   

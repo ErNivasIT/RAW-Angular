@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">RAW App</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+      aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor03">
@@ -12,14 +13,14 @@
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Officer Module</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Officer Module</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" routerLink="add-officer">Add Officer</a>
             <a class="dropdown-item" routerLink="officer-list">All Officers</a>
             <a class="dropdown-item" href="#">Something else here</a>
             <div class="dropdown-divider"></div>
-            
-            <a class="dropdown-item" routerLink="login">LogIn</a>
+            <a class="dropdown-item" [routerLink]="isLoggedIn?'logout':'login'"> {{ isLoggedIn ? 'Logout' : 'LogIn' }}</a>
           </div>
         </li>
       </ul>
@@ -34,4 +35,3 @@
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>
- 
