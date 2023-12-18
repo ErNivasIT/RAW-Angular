@@ -18,14 +18,14 @@ export class AddOfficerComponent implements OnInit {
   constructor(private fb: FormBuilder, private officerApi: OfficersapiService) { }
   ngOnInit(): void {
     this.officerForm = this.fb.group({
-      Name:['',Validators.required],
-      FatherName:['',Validators.required],
-      MotherName:['',Validators.required],
-      Gender:['',Validators.required],
-      NickName:['',Validators.required],
-      DOB:['',Validators.required],
-      Address:['',Validators.required],
-      Added_By:['',Validators.required],
+      Name:[''],
+      FatherName:[''],
+      MotherName:[''],
+      Gender:[''],
+      NickName:[''],
+      DOB:[''],
+      Address:[''],
+      Added_By:[''],
     });
   }
   onSubmit() {

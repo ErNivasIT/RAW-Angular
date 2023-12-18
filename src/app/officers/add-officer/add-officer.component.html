@@ -9,7 +9,7 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text"  class="form-control" formControlName="Name" [ngClass]="{ 'has-error': officerForm.get('Name')?.errors && (officerForm.get('Name')?.touched || officerForm.get('Name')?.dirty) }">
+                <input type="text"  class="form-control" formControlName="Name" >
             </div>
     </div>
 </div>
@@ -17,7 +17,7 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Father Name</label>
-                <input type="text" class="form-control" formControlName="FatherName"  [ngClass]="{ 'has-error': officerForm.get('FatherName')?.errors && (officerForm.get('FatherName')?.touched || officerForm.get('FatherName')?.dirty) }">
+                <input type="text" class="form-control" formControlName="FatherName">
             </div>
         </div>
     </div>

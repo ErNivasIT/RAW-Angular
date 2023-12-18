@@ -7,7 +7,7 @@ import { LoginapiService } from '../../loginapi.service';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
   response:any;
@@ -22,13 +22,13 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.loginService.loginUser(this.loginForm.value)
     .subscribe(p=>{
-      console.log(p);
-      this.setToken(this.response.token);
+      console.log((<any>p).token);
+      this.setToken((<any>p).token);
     });
     console.log(this.loginForm.value);
   } 
   private setToken(token: string): void {
     // Set the token as an HttpOnly cookie
-    localStorage.setItem("token",this.response.token);
+    localStorage.setItem("token",token);
   }
 }
