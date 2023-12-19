@@ -1,12 +1,12 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="row mb-2">
-        <div class="col-12">
-            <div class="alert alert-secondary">Login in Application</div>
+        <div class="offset-3 col-6">
+            <div class="alert alert-dark">Login in Application</div>
         </div>
     </div>
 
     <div class="row mb-2">
-        <div class="col-6">
+        <div class="offset-3 col-6">
             <div class="form-group">
                 <label>User Name</label>
                 <input type="text" class="form-control" formControlName="UserName">
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-6">
+            <div class="offset-3 col-6 text-center">
                 <input type="submit" class="btn btn-secondary" value="Login">
             </div>
         </div>

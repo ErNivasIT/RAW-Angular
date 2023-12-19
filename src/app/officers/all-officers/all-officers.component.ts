@@ -33,4 +33,7 @@ export class AllOfficersComponent {
   view_officer_posting(officer_id: number) {
     this.router.navigate(['/view-officer-posting', officer_id]);
   }
+  add_qualification(id: number) {
+    this.router.navigate(['/add-qualification', id]);
+  }
 }

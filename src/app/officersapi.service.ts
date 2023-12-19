@@ -24,5 +24,8 @@ export class OfficersapiService {
     console.log(form);
     return this.http.put<any>(this.apiUrl+"/officers/update/"+id,form);
   }
+  addQualifications(qualificationsForm:any) {
+    return this.http.post(this.apiUrl+"/officers/add-qualifications",qualificationsForm);
+  } 
   
 }

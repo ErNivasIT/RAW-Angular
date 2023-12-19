@@ -8,10 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { LogoutComponent } from './login/logout/logout.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AddQualificationComponent } from './officers/add-qualification/add-qualification.component';
 
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
     { path: "welcome", component: WelcomeComponent },
+    { path: "add-qualification/:id", component: AddQualificationComponent },
     { path: "login", component: LoginComponent },
     { path: "logout", component: LogoutComponent },
     { path: "officer-list", component: AllOfficersComponent },

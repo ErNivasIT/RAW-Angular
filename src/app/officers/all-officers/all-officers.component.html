@@ -13,6 +13,7 @@
             <th>Gender</th>
             <th>Address</th>
             <th>Action</th>
+            <th>Qualification</th>
             <th>Posting</th>
         </tr>
     </thead>
@@ -29,6 +30,15 @@
             <td>{{officer.gender}}</td>
             <td>{{officer.address}}</td>
             <td><a class="btn btn-secondary" (click)="edit(officer.id)"><i class="fa fa-edit"></i></a></td>
+            <td>
+
+                <a *ngIf="officer.qualificationId > 0; else elseBlockQ" class="btn btn-secondary"
+                    (click)="view_officer_posting(officer.id)"><i class="fa fa-file"></i></a>
+                <ng-template #elseBlockQ>
+                    <a class="btn btn-secondary" (click)="add_qualification(officer.id)"><i class="fa fa-plus"></i></a>
+                </ng-template>
+
+            </td>
             <td>
 
                 <a *ngIf="officer.postingId > 0; else elseBlock" class="btn btn-secondary"
