@@ -50,11 +50,20 @@
             <input type="submit" class="btn btn-primary" value="Save">
         </div>
     </div>
-    @if(isModalShowable)
-    {
-    <div class="mt-3 mb-5 alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Information </strong> {{response.result}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    }
 </form>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Posting Update Information</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                {{this.response.result}}
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+</ng-template>

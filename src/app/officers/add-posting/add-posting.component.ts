@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, Type, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OfficersapiService } from '../../officersapi.service';
 import { PostingapiService } from '../../postingapi.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgbActiveModal, NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-posting',
   standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './add-posting.component.html'
+  imports: [ReactiveFormsModule, NgbModule],
+  templateUrl: './add-posting.component.html',
+  providers: [NgbActiveModal]
 })
 export class AddPostingComponent {
+  @ViewChild('content', { static: true }) contentTemplate!: TemplateRef<any>;
+
   id: number = 0;
-  isModalShowable: boolean = false;
   response: any;
+  content!: any;
   postingForm = new FormGroup({
     Designation: new FormControl(''),
     DOJ: new FormControl(''),
@@ -23,7 +27,7 @@ export class AddPostingComponent {
     Officer_Id: new FormControl(0),
     Added_By: new FormControl('Administrator'),
   });
-  constructor(private officerApi: PostingapiService, private router: ActivatedRoute) {
+  constructor(private modalService: NgbModal, private officerApi: PostingapiService, private router: ActivatedRoute) {
   }
   ngOnInit() {
     this.router.params.subscribe(p => {
@@ -39,7 +43,10 @@ export class AddPostingComponent {
     this.officerApi.addPosting(this.postingForm.value)
       .subscribe(p => {
         this.response = p;
-        this.isModalShowable = true;
+        this.openModal();
       });
+  }
+  openModal() {
+    this.modalService.open(this.contentTemplate);
   }
 }

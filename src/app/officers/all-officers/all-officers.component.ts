@@ -1,21 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { OfficersapiService } from '../../officersapi.service';
 import { NgFor, CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Route, Router, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalDismissReasons, NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-all-officers',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,NgbModule],
   templateUrl: './all-officers.component.html',
-  providers: [OfficersapiService,RouterModule,HttpClientModule]
+  providers: [OfficersapiService,RouterModule,HttpClientModule,NgbModule]
 })
 export class AllOfficersComponent {
   officerList: any = [];
-  constructor(private api: OfficersapiService,private router: Router) {
+  closeResult = '';
+  constructor(private api: OfficersapiService,private router: Router,private modalService:NgbModal) {
   }
+  
   ngOnInit() {
     this.api.getOfficersList().subscribe(p => {
       this.officerList = p;

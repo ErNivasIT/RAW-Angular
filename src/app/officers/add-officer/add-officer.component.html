@@ -9,10 +9,10 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text"  class="form-control" formControlName="Name" >
+                <input type="text" class="form-control" formControlName="Name">
             </div>
+        </div>
     </div>
-</div>
     <div class="row mb-2">
         <div class="col-6">
             <div class="form-group">
@@ -73,12 +73,13 @@
             <input type="submit" class="btn btn-secondary" value="Save">
         </div>
     </div>
-    @if(isModalShowable)
-    {
-    <div class="mt-3 mb-5 alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Information </strong> {{response.result}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-
-    }
 </form>
+
+@if (showToast) {
+<ngb-toast header="Message" (hidden)="showToast = false" class="toast-top-right">
+    <div class="row">
+        <div class="text-left col-md-10"> {{response.result}}</div>
+        <div class="col-md-2"><a (click)="officerList()" class="btn btn-outline-primary">All Officers</a></div>
+    </div>
+</ngb-toast>
+}

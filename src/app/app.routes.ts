@@ -7,9 +7,11 @@ import { ViewOfficerPostingComponent } from './officers/view-officer-posting/vie
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { LogoutComponent } from './login/logout/logout.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
+    { path: "welcome", component: WelcomeComponent },
     { path: "login", component: LoginComponent },
     { path: "logout", component: LogoutComponent },
     { path: "officer-list", component: AllOfficersComponent },

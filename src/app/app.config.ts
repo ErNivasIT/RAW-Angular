@@ -3,6 +3,7 @@ import { provideRouter } from "@angular/router";
 import { routes } from "./app.routes";
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi } from "@angular/common/http";
 import { AuthInterceptor } from "./auth-interceptor";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -14,5 +15,6 @@ export const appConfig: ApplicationConfig = {
             useClass: AuthInterceptor,
             multi: true,
         },
+        NgbModule
     ]
 }
