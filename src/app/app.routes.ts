@@ -9,10 +9,12 @@ import { LoginComponent } from './login/login/login.component';
 import { LogoutComponent } from './login/logout/logout.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AddQualificationComponent } from './officers/add-qualification/add-qualification.component';
+import { MenuManagerComponent } from './administrator/menu-manager/menu-manager.component';
 
 export const routes: Routes = [
     { path: "home", component: HomeComponent },
     { path: "welcome", component: WelcomeComponent },
+    { path: "add-menus", component: MenuManagerComponent },
     { path: "add-qualification/:id", component: AddQualificationComponent },
     { path: "login", component: LoginComponent },
     { path: "logout", component: LogoutComponent },

@@ -1,0 +1,23 @@
+<form [formGroup]="menusGroup" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <div class="d-flex">
+            <div class="px-3 py-2"> <span class="fa fa-plus" (click)="addMenu()"></span>
+
+            </div>
+        </div>
+        <div formArrayName="Menus" *ngFor="let menu of this.getAllMenus().controls;let i=index">
+            <div class="form-group col-4" [formGroupName]="i">
+                <label [attr.for]="'pageTitle_'+i" class="label">Page Title</label>
+                <input type="text" [id]="'pageTitle_'+i" class="form-control" formControlName="pageTitle"
+                    [value]="menu.get('pageTitle')?.value">
+
+                <label [attr.for]="'link_'+i">Page URL</label>
+                <input type="text" [id]="'link_'+i" class="form-control" formControlName="link"
+                    [value]="menu.get('link')?.value">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-4"> <input type="submit" value="Save Menus" class="btn btn-primary"></div>
+    </div>
+</form>
